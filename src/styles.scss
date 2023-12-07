@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'normalize.css';
+
+:root{
+  --gray: #6D7D8B;
+  --bluey: #4DA0FD;
+  --dark-blue: #1E2742;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('./assets/fonts/Mulish-VariableFont_wght.ttf');
+}
+
+body {
+  font-family: Mulish, serif;
+}

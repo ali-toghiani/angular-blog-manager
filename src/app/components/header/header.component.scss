@@ -1,0 +1,39 @@
+.header-container {
+  width: 100%;
+  max-width: 1179px;
+  margin-top: 15px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+
+  .header-company-name{
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    color: var(--dark-blue);
+  }
+
+  .header-actions-container{
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+
+    .header-action {
+      text-decoration: underline;
+      color: var(--gray);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .logout-action{
+      color: var(--bluey);
+      padding: 16px 37px;
+      border-radius: 4px;
+      border: 2px solid rgba(77, 160, 253, 0.42);
+      text-decoration: none;
+    }
+  }
+}
