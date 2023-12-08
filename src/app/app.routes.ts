@@ -11,5 +11,13 @@ export const routes: Routes = [
   {
     path: Paths.BLOGS_LIST,
     loadComponent: () => import('./components/blogs-list/blogs-list.component').then( mod => mod.BlogsListComponent)
+  },
+  {
+    path: `${Paths.BLOGS_LIST}/:id`,
+    loadComponent: () => import('./components/blog-view/blog-view.component').then( mod => mod.BlogViewComponent)
+  },
+  {
+    path: '**',
+    redirectTo: Paths.BLOGS_LIST
   }
 ];

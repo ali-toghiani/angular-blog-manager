@@ -1,5 +1,3 @@
-@import 'normalize.css';
-
 :root{
   --gray: #6D7D8B;
   --blue: #4DA0FD;
@@ -25,8 +23,15 @@
   src: url('./assets/fonts/Karla-VariableFont_wght.ttf');
 }
 
+@font-face {
+  font-family: 'Mukta';
+  src: url('./assets/fonts/Mukta-Bold.ttf');
+}
+
 
 body {
   font-family: Mulish, serif;
   background: var(--main-bg-white);
+  margin: 0;
+  box-sizing: border-box;
 }

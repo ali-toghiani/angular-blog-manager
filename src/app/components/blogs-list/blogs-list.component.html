@@ -14,7 +14,7 @@
 
   <div class="blogs-grid">
 
-    <div class="blog" *ngFor="let blog of blogs">
+    <a class="blog" *ngFor="let blog of blogs" [routerLink]="['/', pathsEnum.BLOGS_LIST, blog.id]">
       <div class="blog-image">
         <img [ngSrc]="blog.image_url"
              [alt]="blog.title"
@@ -46,7 +46,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 
   <button class="load-blogs-btn">

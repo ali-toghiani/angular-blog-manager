@@ -3,6 +3,7 @@ export interface BlogsListModel {
 }
 
 export interface BlogsModel{
+  id: number
   title: string
   image_url: string
   main_text: string

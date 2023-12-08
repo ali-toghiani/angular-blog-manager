@@ -1,0 +1,108 @@
+.blog-container{
+  max-width: 900px;
+  padding-inline: 15px;
+  padding-top: 200px;
+  padding-bottom: 160px;
+  width: 100%;
+  margin-inline: auto;
+
+  .blog-view{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .blog-inner-container{
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .blog-title {
+      margin: 0;
+      max-width: 700px;
+      color: var(--black, #25313C);
+      font-family: Mukta;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+    }
+    .author-section {
+      display: flex;
+      align-items: center;
+      margin-top: auto;
+
+      color: var(--gray);
+      font-family: Mulish;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 150.6%;
+
+      .author-name{
+        margin-inline-end: 10px;
+      }
+      .created-date {
+        margin-inline-start: 15px;
+      }
+      .author-avatar{
+        border-radius: 50%;
+        margin-inline-end: 20px;
+      }
+    }
+
+    .blog-image{
+      margin-top: 60px;
+    }
+
+    .blog-main-text{
+      margin-top: 60px;
+      color: var(--black, #25313C);
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 163.15%;
+    }
+
+    .blog-written-by {
+      margin-top: 56px;
+      margin-inline-start: 12px;
+      align-self: start;
+      display: flex;
+      column-gap: 15px;
+
+      .blog-author-avatar{
+        border-radius: 50%;
+      }
+
+      .blog-written-by-text-container {
+        display: flex;
+        flex-direction: column;
+
+        .written-by-title{
+          color: var(--dark-blue);
+          font-family: Mulish;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 600;
+        }
+
+        .written-by-author-name {
+          color: var(--black);
+          font-family: Mulish;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+    }
+
+    .blog-horizontal-line{
+      width: 100%;
+      height: 1px;
+      margin-top: 106px;
+      background: hsla(208, 12%, 49%, 0.22);
+
+    }
+  }
+}

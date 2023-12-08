@@ -1,3 +1,3 @@
 export enum Paths {
-  BLOGS_LIST = 'list'
+  BLOGS_LIST = 'blogs'
 }

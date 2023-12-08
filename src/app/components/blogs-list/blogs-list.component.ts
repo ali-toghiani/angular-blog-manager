@@ -3,6 +3,8 @@ import {BlogsListModel, BlogsModel} from "../../models/blogs.model";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {Subscription} from "rxjs";
 import {NgForOf, NgOptimizedImage} from "@angular/common";
+import {RouterLink} from "@angular/router";
+import {Paths} from "../../enums/paths";
 
 @Component({
   selector: 'app-blogs-list',
@@ -10,7 +12,8 @@ import {NgForOf, NgOptimizedImage} from "@angular/common";
   imports: [
     HttpClientModule,
     NgForOf,
-    NgOptimizedImage
+    NgOptimizedImage,
+    RouterLink
   ],
   templateUrl: './blogs-list.component.html',
   styleUrl: './blogs-list.component.scss'
@@ -31,10 +34,13 @@ export class BlogsListComponent implements OnInit {
         {
           next: res => {
             this.blogs = res.data;
-            console.log(this.blogs);
           }
         }
       )
     )
+  }
+
+  get pathsEnum(): typeof Paths {
+    return Paths;
   }
 }

@@ -1,0 +1,57 @@
+<div class="blog-container">
+
+  @if(blog){
+    <div class="blog-view">
+
+      <div class="blog-inner-container">
+        <h1 class="blog-title">
+          {{blog.title}}
+        </h1>
+        <div class="author-section">
+          <img [ngSrc]="blog.author_avatar_url"
+               class="author-avatar"
+               alt="avatar of the author"
+               width="45"
+               height="45">
+
+          <div class="author-name">
+            {{ blog.author_name}}
+          </div>
+          |
+          <div class="created-date">
+            {{ blog.date }}
+          </div>
+        </div>
+      </div>
+
+      <img class="blog-image"
+           [ngSrc]="blog.image_url"
+           [alt]="blog.title"
+           width="900"
+           height="450">
+
+      <div class="blog-main-text">
+        {{blog.main_text}}
+      </div>
+
+      <div class="blog-written-by">
+        <img class="blog-author-avatar"
+             [ngSrc]="blog.image_url"
+             [alt]="blog.title"
+             width="56"
+             height="56">
+        <div class="blog-written-by-text-container">
+          <div class="written-by-title">Written by</div>
+          <div class="written-by-author-name">{{ blog.author_name }}</div>
+        </div>
+      </div>
+
+      <div class="blog-horizontal-line"></div>
+    </div>
+
+
+  } @else {
+    404 Not Found
+  }
+
+</div>
