@@ -1,0 +1,55 @@
+<div class="blogs-list-container">
+
+  <div class="list-title">
+    Blog posts
+  </div>
+
+  <div class="list-description">
+    Our latest updates and blogs about managing your team
+  </div>
+
+  <input class="list-search-box"
+         placeholder="Search"
+         type="text">
+
+  <div class="blogs-grid">
+
+    <div class="blog" *ngFor="let blog of blogs">
+      <div class="blog-image">
+        <img [ngSrc]="blog.image_url"
+             [alt]="blog.title"
+             width="370"
+             height="147">
+      </div>
+      <div class="blog-inner-container">
+        <div class="blog-title">
+          {{blog.title}}
+        </div>
+
+        <div class="blog-summary">
+          {{blog.main_text.substring(0, 20)}}
+        </div>
+
+        <div class="author-section">
+          <img [ngSrc]="blog.author_avatar_url"
+               class="author-avatar"
+               alt="avatar of the author"
+               width="45"
+               height="45">
+
+          <div class="author-name">
+            {{ blog.author_name}}
+          </div>
+          |
+          <div class="created-date">
+            {{ blog.date }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="load-blogs-btn">
+    Next >
+  </button>
+</div>

@@ -2,9 +2,12 @@
 
 :root{
   --gray: #6D7D8B;
-  --bluey: #4DA0FD;
+  --blue: #4DA0FD;
   --dark-blue: #1E2742;
   --footer-bg: #252B3B;
+  --search-bg-white: #E8F3FF;
+  --main-bg-white: #F5F7FA;
+  --black: #25313C;
 }
 
 @font-face {
@@ -12,6 +15,13 @@
   src: url('./assets/fonts/Mulish-VariableFont_wght.ttf');
 }
 
+@font-face {
+  font-family: 'Cabin';
+  src: url('./assets/fonts/Cabin-VariableFont_wdth,wght.ttf');
+}
+
+
 body {
   font-family: Mulish, serif;
+  background: var(--main-bg-white);
 }
