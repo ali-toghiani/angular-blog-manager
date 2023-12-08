@@ -10,4 +10,12 @@ export interface BlogsModel{
   date: string
   author_name: string
   author_avatar_url: string
+  comments: BlogCommentModel[]
+}
+
+export interface BlogCommentModel {
+  name: string
+  message: string
+  date: string
+  avatar_url: string
 }
