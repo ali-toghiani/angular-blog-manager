@@ -1,7 +1,6 @@
 <div class="blog-container">
 
-  @if(blog){
-    <div class="blog-view">
+    <div class="blog-view" *ngIf="blog else emptyBlog">
 
       <div class="blog-inner-container">
         <h1 class="blog-title">
@@ -47,11 +46,41 @@
       </div>
 
       <div class="blog-horizontal-line"></div>
+
+      <div class="blog-comment-section">
+
+        <ng-container *ngFor="let comment of blog.comments; let index = index">
+          <div class="blog-comment"
+               *ngIf="loadAllComments || index < DEFAULT_SHOWN_COMMENTS_COUNT">
+            <img class="comment-avatar"
+                 [ngSrc]="comment.avatar_url"
+                 alt="comment avatar author"
+                 width="56"
+                 height="56">
+            <div class="comment-content-container">
+              <div class="comment-name-date">
+                <span> {{ comment.name }}</span>
+                |
+                <span>{{ comment.date }}</span>
+              </div>
+              <div class="comment-message">
+                {{comment.message}}
+              </div>
+            </div>
+          </div>
+
+        </ng-container>
+
+        <button class="load-comments-btn"
+                (click)="loadAllComments = true"
+                *ngIf="!loadAllComments && blog.comments.length > DEFAULT_SHOWN_COMMENTS_COUNT">
+          Load More Comments +
+        </button>
+      </div>
+
     </div>
-
-
-  } @else {
+  <ng-template #emptyBlog>
     404 Not Found
-  }
+  </ng-template>
 
 </div>

@@ -104,5 +104,48 @@
       background: hsla(208, 12%, 49%, 0.22);
 
     }
+
+    .blog-comment-section {
+      padding-top: 25px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+      .blog-comment {
+        padding: 20px;
+        width: 100%;
+        background: white;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        column-gap: 30px;
+        .comment-avatar {
+          align-self: start;
+          border-radius: 50%;
+        }
+        .comment-message {
+          margin-top: 10px;
+        }
+      }
+
+      .load-comments-btn{
+        margin-bottom: 20px;
+        margin-top: 20px;
+        margin-inline: auto;
+        width: fit-content;
+        height: 44px;
+        padding-inline: 20px;
+        border-radius: 4px;
+        border-width: 0;
+        background: rgba(30, 39, 66, 0.1);
+        color: var(--gray, #6D7D8B);
+        text-align: center;
+        font-family: Mulish;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150.6%;
+      }
+    }
   }
 }

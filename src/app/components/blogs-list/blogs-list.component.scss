@@ -50,7 +50,7 @@
     margin-bottom: 100px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 363px);
-    justify-content: space-between;
+    justify-content: center;
     grid-gap: 20px;
     row-gap: 65px;
     column-gap: 33px;
@@ -64,6 +64,7 @@
       min-width: 363px;
       padding-bottom: 20px;
       overflow: hidden;
+      text-decoration: none;
 
       .blog-inner-container{
         display: flex;

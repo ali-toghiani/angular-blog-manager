@@ -2,12 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {BlogsListModel, BlogsModel} from "../../models/blogs.model";
 import {Subscription} from "rxjs";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
-import {NgOptimizedImage} from "@angular/common";
+import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-blog-view',
   standalone: true,
-  imports: [HttpClientModule, NgOptimizedImage],
+  imports: [HttpClientModule, NgOptimizedImage, NgIf, NgForOf],
   templateUrl: './blog-view.component.html',
   styleUrl: './blog-view.component.scss'
 })
@@ -15,6 +15,9 @@ export class BlogViewComponent implements OnInit {
 
   subscriptions = new Subscription();
   blog: BlogsModel | undefined;
+
+  readonly DEFAULT_SHOWN_COMMENTS_COUNT = 5;
+  loadAllComments = false;
   constructor(
     private http: HttpClient
   ) {
