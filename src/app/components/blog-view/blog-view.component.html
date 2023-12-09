@@ -78,6 +78,23 @@
         </button>
       </div>
 
+      <div class="blog-create-comment">
+        <h3 class="create-comment-title">
+          Join the conversation
+        </h3>
+        <div class="create-comment-container">
+          <img class="comment-avatar"
+               [ngSrc]="'https://randomuser.me/api/portraits/men/1.jpg'"
+               alt="comment author's avatar"
+               width="56"
+               height="56">
+          <textarea class="create-comment-text-area"></textarea>
+        </div>
+        <button class="submit-comment-btn">
+          Submit
+        </button>
+      </div>
+
     </div>
   <ng-template #emptyBlog>
     404 Not Found
