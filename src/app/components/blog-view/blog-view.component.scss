@@ -6,6 +6,11 @@
   width: 100%;
   margin-inline: auto;
 
+  @media only screen and (max-width: 700px) {
+    padding-top: 80px;
+    padding-bottom: 50px;
+  }
+
   .blog-view{
     display: flex;
     flex-direction: column;
@@ -52,6 +57,8 @@
 
     .blog-image{
       margin-top: 60px;
+      width: 100%;
+      height: 100%;
     }
 
     .blog-main-text{

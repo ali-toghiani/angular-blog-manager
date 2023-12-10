@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
 
-  max-width: 1155px;
-  padding-inline: 30px;
+  max-width: 1185px;
+  padding-inline: 15px;
   margin-inline: auto;
 
   .list-title{
@@ -49,7 +49,7 @@
     margin-top: 30px;
     margin-bottom: 100px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 363px);
+    grid-template-columns: repeat(auto-fill, min(100%, 363px));
     justify-content: center;
     grid-gap: 20px;
     row-gap: 65px;
@@ -60,8 +60,8 @@
       background: white;
       border-radius: 30px;
       height: 440px;
-      width: 363px;
-      min-width: 363px;
+      width: 100%;
+      max-width: 363px;
       padding-bottom: 20px;
       overflow: hidden;
       text-decoration: none;
@@ -74,12 +74,13 @@
       }
 
       .blog-image{
-        width: 370px;
+        width: 100%;
         height: 147px;
       }
 
       .blog-title{
         margin-top: 25px;
+        height: 90px;
 
         color: var(--black);
         font-family: Cabin;
