@@ -29,6 +29,9 @@
   src: url('./assets/fonts/Mukta-Bold.ttf');
 }
 
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: Mulish, serif;
