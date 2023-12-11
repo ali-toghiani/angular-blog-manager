@@ -17,6 +17,10 @@ export const routes: Routes = [
     loadComponent: () => import('./components/blogs/blog-view/blog-view.component').then(mod => mod.BlogViewComponent)
   },
   {
+    path: Paths.CREATE_BLOGS,
+    loadComponent: () => import('./components/blogs/create-blog/create-blog.component').then(mod => mod.CreateBlogComponent)
+  },
+  {
     path: '**',
     redirectTo: Paths.BLOGS_LIST
   }
