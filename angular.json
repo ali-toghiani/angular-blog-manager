@@ -30,6 +30,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/quill/dist/quill.core.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -90,6 +92,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/quill/dist/quill.core.css",
               "src/styles.scss"
             ],
             "scripts": []
