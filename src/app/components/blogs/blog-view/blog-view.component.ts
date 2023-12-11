@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {BlogsListModel, BlogsModel} from "../../../models/blogs.model";
+import {BlogsModel} from "../../../models/blogs.model";
 import {Subscription} from "rxjs";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import {ActivatedRoute} from "@angular/router";
+import {MockDataService} from "../../../services/mock-data.service";
 
 @Component({
   selector: 'app-blog-view',
@@ -13,25 +15,20 @@ import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 })
 export class BlogViewComponent implements OnInit {
 
-  subscriptions = new Subscription();
   blog: BlogsModel | undefined;
+  blogId: number;
 
   readonly DEFAULT_SHOWN_COMMENTS_COUNT = 5;
   loadAllComments = false;
   constructor(
-    private http: HttpClient
+    private mockDataService: MockDataService,
+    private activatedRoute: ActivatedRoute
   ) {
+    this.blogId = this.activatedRoute.snapshot.params['id'];
   }
   ngOnInit(): void {
-    const url = 'assets/mock-data/blogs-mock.json'
-    this.subscriptions.add(
-      this.http.get<BlogsListModel>(url).subscribe(
-        {
-          next: res => {
-            this.blog = res.data[0];
-          }
-        }
-      )
-    )
+    setTimeout(()=> {
+      this.blog = this.mockDataService.getBlog( this.blogId )
+    }, 100);
   }
 }
