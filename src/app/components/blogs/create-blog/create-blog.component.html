@@ -15,7 +15,11 @@
 
     <div class="create-row">
       <label class="create-label">Content:</label>
-      <textarea class="create-input" rows="3"></textarea>
+      <quill-editor [styles]="{height: '300px'}"
+                    format="text"
+                    class="ps-mb-30px"
+                    dir="ltr">
+      </quill-editor>
     </div>
 
     <button class="button-secondary create-submit-btn">
