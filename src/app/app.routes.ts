@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import {Paths} from "./enums/paths";
-import {BlogsListComponent} from "./components/blogs-list/blogs-list.component";
+import {BlogsListComponent} from "./components/blogs/blogs-list/blogs-list.component";
 
 export const routes: Routes = [
   {
@@ -10,11 +10,11 @@ export const routes: Routes = [
   },
   {
     path: Paths.BLOGS_LIST,
-    loadComponent: () => import('./components/blogs-list/blogs-list.component').then( mod => mod.BlogsListComponent)
+    loadComponent: () => import('./components/blogs/blogs-list/blogs-list.component').then(mod => mod.BlogsListComponent)
   },
   {
     path: `${Paths.BLOGS_LIST}/:id`,
-    loadComponent: () => import('./components/blog-view/blog-view.component').then( mod => mod.BlogViewComponent)
+    loadComponent: () => import('./components/blogs/blog-view/blog-view.component').then(mod => mod.BlogViewComponent)
   },
   {
     path: '**',

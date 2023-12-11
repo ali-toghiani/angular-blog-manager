@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {BlogsListModel, BlogsModel} from "../../models/blogs.model";
+import {BlogsListModel, BlogsModel} from "../../../models/blogs.model";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {Subscription} from "rxjs";
 import {NgForOf, NgOptimizedImage} from "@angular/common";
 import {RouterLink} from "@angular/router";
-import {Paths} from "../../enums/paths";
+import {Paths} from "../../../enums/paths";
 
 @Component({
   selector: 'app-blogs-list',

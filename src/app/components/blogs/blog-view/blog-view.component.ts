@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BlogsListModel, BlogsModel} from "../../models/blogs.model";
+import {BlogsListModel, BlogsModel} from "../../../models/blogs.model";
 import {Subscription} from "rxjs";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
