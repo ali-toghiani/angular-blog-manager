@@ -77,6 +77,12 @@ button, a {
   &:hover {
     border: 2px solid rgba(77, 160, 253, 1);
   }
+  &:disabled {
+    color: var(--gray, #6D7D8B);
+    background: rgba(77, 160, 253, 0.10);
+    border: 1px solid var(--light-gray);
+    cursor: not-allowed;
+  }
 }
 
 body {
@@ -84,4 +90,23 @@ body {
   background: var(--main-bg-white);
   margin: 0;
   box-sizing: border-box;
+}
+
+#loading {
+  margin-inline: 5px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 3px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: var(--blue);
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
 }

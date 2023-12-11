@@ -11,7 +11,7 @@
 
   .create-page-title{
     margin-inline: auto;
-
+    margin-bottom: 30px;
   }
 
   .create-inner-container{
@@ -35,12 +35,23 @@
       column-gap: 20px;
       row-gap: 10px;
 
+      .row-inner-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
       .create-label{
         white-space: nowrap;
         font-family: Mulish;
         font-weight: 600;
         color: var(--gray);
         min-width: 125px;
+
+        &::after{
+          content: "*";
+          color: red;
+        }
       }
 
       .create-input {
@@ -60,6 +71,12 @@
   }
 
 
-
-
+  .error-message{
+    color: indianred;
+    border: 1px solid indianred;
+    padding: 5px 10px;
+    margin-top: 3px;
+    border-radius: 5px;
+  }
 }
+
