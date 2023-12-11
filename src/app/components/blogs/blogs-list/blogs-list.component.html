@@ -11,6 +11,8 @@
   <div class="list-search-bar">
     <input class="list-search-box"
            placeholder="Search"
+           [(ngModel)]="searchString"
+           (ngModelChange)="filterList()"
            type="text">
 
     <button class="button-primary add-post-btn" [routerLink]="['/', pathsEnum.CREATE_BLOGS]">
@@ -18,45 +20,51 @@
     </button>
   </div>
 
-  <div class="blogs-grid">
+  <div class="blogs-grid" *ngIf="filteredBlogs.length > 0" [@listAnimation]="filteredBlogs.length">
 
-    <a class="blog" *ngFor="let blog of blogs" [routerLink]="['/', pathsEnum.BLOGS_LIST, blog.id]">
+    <ng-container *ngFor="let blog of filteredBlogs; let index = index">
+      <a class="blog"
+         *ngIf="index < showingBlogsLimit"
+         [routerLink]="['/', pathsEnum.BLOGS_LIST, blog.id]">
 
-      <img class="blog-image"
-           [ngSrc]="blog.image_url"
-           [alt]="blog.title"
-           width="370"
-           height="147">
+        <img class="blog-image"
+             [ngSrc]="blog.image_url"
+             [alt]="blog.title"
+             width="370"
+             height="147">
 
-      <div class="blog-inner-container">
-        <div class="blog-title">
-          {{blog.title}}
-        </div>
-
-        <div class="blog-summary">
-          {{blog.main_text.substring(0, 100)}}
-        </div>
-
-        <div class="author-section">
-          <img [ngSrc]="blog.author_avatar_url"
-               class="author-avatar"
-               alt="avatar of the author"
-               width="45"
-               height="45">
-
-          <div class="author-name">
-            {{ blog.author_name}}
+        <div class="blog-inner-container">
+          <div class="blog-title">
+            {{blog.title}}
           </div>
-          |
-          <div class="created-date">
-            {{ blog.date }}
+
+          <div class="blog-summary">
+            {{blog.main_text.substring(0, 100)}}
+          </div>
+
+          <div class="author-section">
+            <img [ngSrc]="blog.author_avatar_url"
+                 class="author-avatar"
+                 alt="avatar of the author"
+                 width="45"
+                 height="45">
+
+            <div class="author-name">
+              {{ blog.author_name}}
+            </div>
+            |
+            <div class="created-date">
+              {{ blog.date }}
+            </div>
           </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </ng-container>
   </div>
 
-  <button class="button-primary load-blogs-btn">
+  <button class="button-primary load-blogs-btn"
+          *ngIf="showingBlogsLimit < this.blogs.length"
+          (click)="loadMorePosts()">
     Next >
   </button>
 </div>

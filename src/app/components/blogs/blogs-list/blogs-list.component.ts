@@ -1,10 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {BlogsListModel, BlogsModel} from "../../../models/blogs.model";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {BlogsModel} from "../../../models/blogs.model";
+import {HttpClientModule} from "@angular/common/http";
 import {Subscription} from "rxjs";
-import {NgForOf, NgOptimizedImage} from "@angular/common";
+import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {Paths} from "../../../enums/paths";
+import {MockDataService} from "../../../services/mock-data.service";
+import {animate, query, stagger, style, transition, trigger} from "@angular/animations";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-blogs-list',
@@ -13,7 +16,26 @@ import {Paths} from "../../../enums/paths";
     HttpClientModule,
     NgForOf,
     NgOptimizedImage,
-    RouterLink
+    RouterLink,
+    NgIf,
+    FormsModule
+  ],
+  animations: [
+    trigger('listAnimation', [
+      transition('* => *', [ // each time the binding value changes
+        query(':leave', [
+          stagger(100, [
+            animate('0.5s', style({ opacity: 0 }))
+          ])
+        ],{ optional: true }),
+        query(':enter', [
+          style({ opacity: 0 }),
+          stagger(100, [
+            animate('0.5s', style({ opacity: 1 }))
+          ])
+        ], { optional: true })
+      ])
+    ])
   ],
   templateUrl: './blogs-list.component.html',
   styleUrl: './blogs-list.component.scss'
@@ -21,26 +43,38 @@ import {Paths} from "../../../enums/paths";
 export class BlogsListComponent implements OnInit {
 
   blogs: BlogsModel[] = [];
-  subscriptions = new Subscription();
+  filteredBlogs: BlogsModel[] = [];
+  searchString = '';
+  showingBlogsLimit =  9;
+
+  readonly batchCount = 9;
   constructor(
-    private http: HttpClient
+    private mockDataService: MockDataService
   ) {
   }
 
   ngOnInit(): void {
-    const url = 'assets/mock-data/blogs-mock.json'
-    this.subscriptions.add(
-      this.http.get<BlogsListModel>(url).subscribe(
-        {
-          next: res => {
-            this.blogs = res.data;
-          }
-        }
-      )
-    )
+    this.mockDataService.$blogsSubject.subscribe({
+      next: res => {
+        this.blogs = res;
+        this.filteredBlogs = this.blogs;
+      }
+    })
   }
 
   get pathsEnum(): typeof Paths {
     return Paths;
+  }
+
+  filterList(): void {
+    if ( this.searchString.length < 3) {
+      this.filteredBlogs = this.blogs;
+    } else {
+      this.filteredBlogs = this.blogs.filter( blog => blog.title.toLowerCase().includes(this.searchString.toLowerCase()))
+    }
+  }
+
+  loadMorePosts(): void{
+    this.showingBlogsLimit += this.batchCount;
   }
 }
