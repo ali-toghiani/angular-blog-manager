@@ -71,7 +71,7 @@
 
         </ng-container>
 
-        <button class="load-comments-btn"
+        <button class="button-primary load-comments-btn"
                 (click)="loadAllComments = true"
                 *ngIf="!loadAllComments && blog.comments.length > DEFAULT_SHOWN_COMMENTS_COUNT">
           Load More Comments +
@@ -90,7 +90,7 @@
                height="56">
           <textarea class="create-comment-text-area"></textarea>
         </div>
-        <button class="submit-comment-btn">
+        <button class="button-secondary submit-comment-btn">
           Submit
         </button>
       </div>
