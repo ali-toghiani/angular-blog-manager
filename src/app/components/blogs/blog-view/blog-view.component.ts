@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {BlogsModel} from "../../../models/blogs.model";
-import {Subscription} from "rxjs";
-import {HttpClientModule} from "@angular/common/http";
 import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
 import {MockDataService} from "../../../services/mock-data.service";
@@ -9,7 +7,8 @@ import {MockDataService} from "../../../services/mock-data.service";
 @Component({
   selector: 'app-blog-view',
   standalone: true,
-  imports: [HttpClientModule, NgOptimizedImage, NgIf, NgForOf],
+  imports: [
+ NgOptimizedImage, NgIf, NgForOf],
   templateUrl: './blog-view.component.html',
   styleUrl: './blog-view.component.scss'
 })

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BlogsListModel, BlogsModel} from "../models/blogs.model";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {environmet} from "../../environments/environment";
 import {BehaviorSubject} from "rxjs";
 

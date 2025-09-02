@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {BlogsModel} from "../../../models/blogs.model";
-import {HttpClientModule} from "@angular/common/http";
-import {Subscription} from "rxjs";
 import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {Paths} from "../../../enums/paths";
@@ -13,7 +11,6 @@ import {FormsModule} from "@angular/forms";
   selector: 'app-blogs-list',
   standalone: true,
   imports: [
-    HttpClientModule,
     NgForOf,
     NgOptimizedImage,
     RouterLink,
