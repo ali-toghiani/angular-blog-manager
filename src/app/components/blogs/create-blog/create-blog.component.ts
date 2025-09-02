@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {QuillEditorComponent, QuillViewHTMLComponent} from "ngx-quill";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {NgIf} from "@angular/common";
+
 import {BlogsModel} from "../../../models/blogs.model";
 import {MockDataService} from "../../../services/mock-data.service";
 import {Router} from "@angular/router";
@@ -13,9 +13,8 @@ import {Paths} from "../../../enums/paths";
   imports: [
     QuillViewHTMLComponent,
     QuillEditorComponent,
-    ReactiveFormsModule,
-    NgIf
-  ],
+    ReactiveFormsModule
+],
   templateUrl: './create-blog.component.html',
   styleUrl: './create-blog.component.scss'
 })

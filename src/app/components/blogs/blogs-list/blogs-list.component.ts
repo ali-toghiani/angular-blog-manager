@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BlogsModel} from "../../../models/blogs.model";
-import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
+import { NgOptimizedImage } from "@angular/common";
 import {RouterLink} from "@angular/router";
 import {Paths} from "../../../enums/paths";
 import {MockDataService} from "../../../services/mock-data.service";
@@ -11,12 +11,10 @@ import {FormsModule} from "@angular/forms";
   selector: 'app-blogs-list',
   standalone: true,
   imports: [
-    NgForOf,
     NgOptimizedImage,
     RouterLink,
-    NgIf,
     FormsModule
-  ],
+],
   animations: [
     trigger('listAnimation', [
       transition('* => *', [ // each time the binding value changes

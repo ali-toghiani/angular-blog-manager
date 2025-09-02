@@ -10,61 +10,59 @@
 
   <div class="list-search-bar">
     <input class="list-search-box"
-           placeholder="Search"
-           [(ngModel)]="searchString"
-           (ngModelChange)="filterList()"
-           type="text">
+      placeholder="Search"
+      [(ngModel)]="searchString"
+      (ngModelChange)="filterList()"
+      type="text">
 
-    <button class="button-primary add-post-btn" [routerLink]="['/', pathsEnum.CREATE_BLOGS]">
-      Add Post
-    </button>
-  </div>
+      <button class="button-primary add-post-btn" [routerLink]="['/', pathsEnum.CREATE_BLOGS]">
+        Add Post
+      </button>
+    </div>
 
-  <div class="blogs-grid" *ngIf="filteredBlogs.length > 0" [@listAnimation]="filteredBlogs.length">
-
-    <ng-container *ngFor="let blog of filteredBlogs; let index = index">
-      <a class="blog"
-         *ngIf="index < showingBlogsLimit"
-         [routerLink]="['/', pathsEnum.BLOGS_LIST, blog.id]">
-
-        <img class="blog-image"
-             [ngSrc]="blog.image_url"
-             [alt]="blog.title"
-             width="370"
-             height="147">
-
-        <div class="blog-inner-container">
-          <div class="blog-title">
-            {{blog.title}}
+    @if (filteredBlogs.length > 0) {
+      <div class="blogs-grid" [@listAnimation]="filteredBlogs.length">
+        @for (blog of filteredBlogs; track blog; let index = $index) {
+          @if (index < showingBlogsLimit) {
+            <a class="blog"
+              [routerLink]="['/', pathsEnum.BLOGS_LIST, blog.id]">
+              <img class="blog-image"
+                [ngSrc]="blog.image_url"
+                [alt]="blog.title"
+                width="370"
+                height="147">
+                <div class="blog-inner-container">
+                  <div class="blog-title">
+                    {{blog.title}}
+                  </div>
+                  <div class="blog-summary">
+                    {{blog.main_text.substring(0, 100)}}
+                  </div>
+                  <div class="author-section">
+                    <img [ngSrc]="blog.author_avatar_url"
+                      class="author-avatar"
+                      alt="avatar of the author"
+                      width="45"
+                      height="45">
+                      <div class="author-name">
+                        {{ blog.author_name}}
+                      </div>
+                      |
+                      <div class="created-date">
+                        {{ blog.date }}
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              }
+            }
           </div>
+        }
 
-          <div class="blog-summary">
-            {{blog.main_text.substring(0, 100)}}
-          </div>
-
-          <div class="author-section">
-            <img [ngSrc]="blog.author_avatar_url"
-                 class="author-avatar"
-                 alt="avatar of the author"
-                 width="45"
-                 height="45">
-
-            <div class="author-name">
-              {{ blog.author_name}}
-            </div>
-            |
-            <div class="created-date">
-              {{ blog.date }}
-            </div>
-          </div>
-        </div>
-      </a>
-    </ng-container>
-  </div>
-
-  <button class="button-primary load-blogs-btn"
-          *ngIf="showingBlogsLimit < this.blogs.length"
-          (click)="loadMorePosts()">
-    Next >
-  </button>
-</div>
+        @if (showingBlogsLimit < this.blogs.length) {
+          <button class="button-primary load-blogs-btn"
+            (click)="loadMorePosts()">
+            Next >
+          </button>
+        }
+      </div>

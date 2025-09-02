@@ -7,13 +7,15 @@
       <label class="create-label">Title of blog:</label>
       <div class="row-inner-container">
         <textarea class="create-input create-title-input"
-                  [readOnly]="isLoading"
-                  rows="3" formControlName="title">
+          [readOnly]="isLoading"
+          rows="3" formControlName="title">
         </textarea>
-        <div class="error-message"
-             *ngIf="form.controls.title.touched && form.controls.title.invalid">
-          Title is required
-        </div>
+        @if (form.controls.title.touched && form.controls.title.invalid) {
+          <div class="error-message"
+            >
+            Title is required
+          </div>
+        }
       </div>
     </div>
 
@@ -21,38 +23,42 @@
       <label class="create-label">Blog Image URL:</label>
       <div class="row-inner-container">
         <input class="create-input"
-               type="url"
-               formControlName="image_url"
-               [readOnly]="isLoading">
-        <div class="error-message"
-             *ngIf="form.controls.image_url.touched && form.controls.image_url.invalid">
-          Title is required
+          type="url"
+          formControlName="image_url"
+          [readOnly]="isLoading">
+          @if (form.controls.image_url.touched && form.controls.image_url.invalid) {
+            <div class="error-message"
+              >
+              Title is required
+            </div>
+          }
         </div>
       </div>
-    </div>
 
-    <div class="create-row">
-      <label class="create-label">Content:</label>
-      <quill-editor [styles]="{height: '300px'}"
-                    format="text"
-                    class="ps-mb-30px"
-                    formControlName="main_text"
-                    [readOnly]="isLoading"
-                    dir="ltr">
-      </quill-editor>
+      <div class="create-row">
+        <label class="create-label">Content:</label>
+        <quill-editor [styles]="{height: '300px'}"
+          format="text"
+          class="ps-mb-30px"
+          formControlName="main_text"
+          [readOnly]="isLoading"
+          dir="ltr">
+        </quill-editor>
 
-    </div>
+      </div>
 
-    <button class="button-secondary create-submit-btn"
-            [disabled]="(form.touched && form.invalid) || isLoading ? 'disabled': null">
-      Submit
-      <div id="loading" *ngIf="isLoading"></div>
-    </button>
-  </form>
+      <button class="button-secondary create-submit-btn"
+        [disabled]="(form.touched && form.invalid) || isLoading ? 'disabled': null">
+        Submit
+        @if (isLoading) {
+          <div id="loading"></div>
+        }
+      </button>
+    </form>
 
-  <ng-template #error_message>
-    <div class="error-template">
-      Please fill all the required data
-    </div>
-  </ng-template>
-</div>
+    <ng-template #error_message>
+      <div class="error-template">
+        Please fill all the required data
+      </div>
+    </ng-template>
+  </div>
