@@ -1,96 +1,98 @@
 <div class="blog-container">
-
   @if (blog) {
-    <div class="blog-view">
-      <div class="blog-inner-container">
-        <h1 class="blog-title">
-          {{blog.title}}
-        </h1>
-        <div class="author-section">
-          <img [ngSrc]="blog.author_avatar_url"
-            class="author-avatar"
-            alt="avatar of the author"
-            width="45"
-            height="45">
-            <div class="author-name">
-              {{ blog.author_name}}
-            </div>
+  <div class="blog-view">
+    <div class="blog-inner-container">
+      <h1 class="blog-title">
+        {{ blog.title }}
+      </h1>
+      <div class="author-section">
+        <img
+          [ngSrc]="blog.author_avatar_url"
+          class="author-avatar"
+          alt="avatar of the author"
+          width="45"
+          height="45"
+        />
+        <div class="author-name">
+          {{ blog.author_name }}
+        </div>
+        |
+        <div class="created-date">
+          {{ blog.date }}
+        </div>
+      </div>
+    </div>
+    <img
+      class="blog-image"
+      [ngSrc]="blog.image_url"
+      [alt]="blog.title"
+      width="900"
+      height="450"
+      priority
+    />
+    <div class="blog-main-text">
+      {{ blog.main_text }}
+    </div>
+    <div class="blog-written-by">
+      <img
+        class="blog-author-avatar"
+        [ngSrc]="blog.image_url"
+        [alt]="blog.title"
+        width="56"
+        height="56"
+      />
+      <div class="blog-written-by-text-container">
+        <div class="written-by-title">Written by</div>
+        <div class="written-by-author-name">{{ blog.author_name }}</div>
+      </div>
+    </div>
+    <div class="blog-horizontal-line"></div>
+    <div class="blog-comment-section">
+      @for (comment of blog.comments; track comment; let index = $index) { @if
+      (loadAllComments || index < DEFAULT_SHOWN_COMMENTS_COUNT) {
+      <div class="blog-comment">
+        <img
+          class="comment-avatar"
+          [ngSrc]="comment.avatar_url"
+          alt="comment avatar author"
+          width="56"
+          height="56"
+        />
+        <div class="comment-content-container">
+          <div class="comment-name-date">
+            <span> {{ comment.name }}</span>
             |
-            <div class="created-date">
-              {{ blog.date }}
-            </div>
+            <span>{{ comment.date }}</span>
+          </div>
+          <div class="comment-message">
+            {{ comment.message }}
           </div>
         </div>
-        <img class="blog-image"
-          [ngSrc]="blog.image_url"
-          [alt]="blog.title"
-          width="900"
-          height="450">
-          <div class="blog-main-text">
-            {{blog.main_text}}
-          </div>
-          <div class="blog-written-by">
-            <img class="blog-author-avatar"
-              [ngSrc]="blog.image_url"
-              [alt]="blog.title"
-              width="56"
-              height="56">
-              <div class="blog-written-by-text-container">
-                <div class="written-by-title">Written by</div>
-                <div class="written-by-author-name">{{ blog.author_name }}</div>
-              </div>
-            </div>
-            <div class="blog-horizontal-line"></div>
-            <div class="blog-comment-section">
-              @for (comment of blog.comments; track comment; let index = $index) {
-                @if (loadAllComments || index < DEFAULT_SHOWN_COMMENTS_COUNT) {
-                  <div class="blog-comment"
-                    >
-                    <img class="comment-avatar"
-                      [ngSrc]="comment.avatar_url"
-                      alt="comment avatar author"
-                      width="56"
-                      height="56">
-                      <div class="comment-content-container">
-                        <div class="comment-name-date">
-                          <span> {{ comment.name }}</span>
-                          |
-                          <span>{{ comment.date }}</span>
-                        </div>
-                        <div class="comment-message">
-                          {{comment.message}}
-                        </div>
-                      </div>
-                    </div>
-                  }
-                }
-                @if (!loadAllComments && blog.comments.length > DEFAULT_SHOWN_COMMENTS_COUNT) {
-                  <button class="button-primary load-comments-btn"
-                    (click)="loadAllComments = true"
-                    >
-                    Load More Comments +
-                  </button>
-                }
-              </div>
-              <div class="blog-create-comment">
-                <h3 class="create-comment-title">
-                  Join the conversation
-                </h3>
-                <div class="create-comment-container">
-                  <img class="comment-avatar"
-                    [ngSrc]="'https://randomuser.me/api/portraits/men/1.jpg'"
-                    alt="comment author's avatar"
-                    width="56"
-                    height="56">
-                    <textarea class="create-comment-text-area"></textarea>
-                  </div>
-                  <button class="button-secondary submit-comment-btn">
-                    Submit
-                  </button>
-                </div>
-              </div>
-            } @else {
-              404 Not Found
-            }
-
-          </div>
+      </div>
+      } } @if (!loadAllComments && blog.comments.length >
+      DEFAULT_SHOWN_COMMENTS_COUNT) {
+      <button
+        class="button-primary load-comments-btn"
+        (click)="loadAllComments = true"
+      >
+        Load More Comments +
+      </button>
+      }
+    </div>
+    <div class="blog-create-comment">
+      <h3 class="create-comment-title">Join the conversation</h3>
+      <div class="create-comment-container">
+        <img
+          class="comment-avatar"
+          [ngSrc]="'https://randomuser.me/api/portraits/men/1.jpg'"
+          alt="comment author's avatar"
+          width="56"
+          height="56"
+        />
+        <textarea class="create-comment-text-area"></textarea>
+      </div>
+      <button class="button-secondary submit-comment-btn">Submit</button>
+    </div>
+  </div>
+  } @else { 404 Not Found }
+</div>

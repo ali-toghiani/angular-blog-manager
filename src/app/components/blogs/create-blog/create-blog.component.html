@@ -1,20 +1,18 @@
 <div class="create-outer-container">
-
   <h1 class="create-page-title">Write your own Blog !</h1>
   <form [formGroup]="form" (ngSubmit)="submit()" class="create-inner-container">
-
     <div class="create-row create-title-container">
       <label class="create-label">Title of blog:</label>
       <div class="row-inner-container">
-        <textarea class="create-input create-title-input"
+        <textarea
+          class="create-input create-title-input"
           [readOnly]="isLoading"
-          rows="3" formControlName="title">
+          rows="3"
+          formControlName="title"
+        >
         </textarea>
         @if (form.controls.title.touched && form.controls.title.invalid) {
-          <div class="error-message"
-            >
-            Title is required
-          </div>
+        <div class="error-message">Title is required</div>
         }
       </div>
     </div>
@@ -22,43 +20,45 @@
     <div class="create-row">
       <label class="create-label">Blog Image URL:</label>
       <div class="row-inner-container">
-        <input class="create-input"
+        <input
+          class="create-input"
           type="url"
           formControlName="image_url"
-          [readOnly]="isLoading">
-          @if (form.controls.image_url.touched && form.controls.image_url.invalid) {
-            <div class="error-message"
-              >
-              Title is required
-            </div>
-          }
-        </div>
-      </div>
-
-      <div class="create-row">
-        <label class="create-label">Content:</label>
-        <quill-editor [styles]="{height: '300px'}"
-          format="text"
-          class="ps-mb-30px"
-          formControlName="main_text"
           [readOnly]="isLoading"
-          dir="ltr">
-        </quill-editor>
-
-      </div>
-
-      <button class="button-secondary create-submit-btn"
-        [disabled]="(form.touched && form.invalid) || isLoading ? 'disabled': null">
-        Submit
-        @if (isLoading) {
-          <div id="loading"></div>
+        />
+        @if (form.controls.image_url.touched && form.controls.image_url.invalid)
+        {
+        <div class="error-message">Title is required</div>
         }
-      </button>
-    </form>
-
-    <ng-template #error_message>
-      <div class="error-template">
-        Please fill all the required data
       </div>
-    </ng-template>
-  </div>
+    </div>
+
+    <div class="create-row">
+      <label class="create-label">Content:</label>
+      <quill-editor
+        [styles]="{ height: '300px' }"
+        format="text"
+        class="ps-mb-30px"
+        formControlName="main_text"
+        [readOnly]="isLoading"
+        dir="ltr"
+      >
+      </quill-editor>
+    </div>
+
+    <button
+      class="button-secondary create-submit-btn"
+      [disabled]="
+        (form.touched && form.invalid) || isLoading ? 'disabled' : null
+      "
+    >
+      Submit @if (isLoading) {
+      <div id="loading"></div>
+      }
+    </button>
+  </form>
+
+  <ng-template #error_message>
+    <div class="error-template">Please fill all the required data</div>
+  </ng-template>
+</div>

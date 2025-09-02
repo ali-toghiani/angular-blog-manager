@@ -1,4 +1,4 @@
-.blogs-list-container{
+.blogs-list-container {
   display: flex;
   flex-direction: column;
 
@@ -6,7 +6,7 @@
   padding-inline: 15px;
   margin-inline: auto;
 
-  .list-title{
+  .list-title {
     margin-top: 20px;
     font-family: Mulish;
     font-size: 48px;
@@ -15,7 +15,7 @@
     line-height: normal;
   }
 
-  .list-description{
+  .list-description {
     margin-top: 20px;
     font-family: Mulish;
     font-size: 18px;
@@ -25,19 +25,19 @@
     color: var(--gray);
   }
 
-  .list-search-bar{
+  .list-search-bar {
     display: flex;
     justify-content: space-between;
     padding-top: 30px;
 
-    .list-search-box{
+    .list-search-box {
       width: 100%;
       max-width: 367px;
       height: 44px;
       border-radius: 4px;
       border: 1px solid var(--blue);
       background: var(--search-bg-white);
-      &::placeholder{
+      &::placeholder {
         padding-inline-start: 30px;
         color: var(--gray);
         font-family: Mulish;
@@ -48,15 +48,12 @@
       }
     }
 
-    .add-post-btn{
+    .add-post-btn {
       padding: 11px 50px;
     }
-
   }
 
-
-
-  .blogs-grid{
+  .blogs-grid {
     margin-top: 30px;
     margin-bottom: 100px;
     display: grid;
@@ -77,19 +74,19 @@
       overflow: hidden;
       text-decoration: none;
 
-      .blog-inner-container{
+      .blog-inner-container {
         display: flex;
         flex-direction: column;
         height: 100%;
         padding-inline: 35px;
       }
 
-      .blog-image{
+      .blog-image {
         width: 100%;
         height: 147px;
       }
 
-      .blog-title{
+      .blog-title {
         margin-top: 25px;
         height: 90px;
 
@@ -124,13 +121,13 @@
         font-weight: 600;
         line-height: 150.6%;
 
-        .author-name{
+        .author-name {
           margin-inline-end: 10px;
         }
         .created-date {
           margin-inline-start: 15px;
         }
-        .author-avatar{
+        .author-avatar {
           border-radius: 50%;
           margin-inline-end: 20px;
         }
@@ -138,7 +135,7 @@
     }
   }
 
-  .load-blogs-btn{
+  .load-blogs-btn {
     margin-bottom: 109px;
     padding-inline: 67px;
     margin-inline: auto;
