@@ -1,14 +1,14 @@
 # Angular Blog Platform
 
-A modern, responsive blog platform built with Angular 17, featuring a clean design and rich text editing capabilities. This project showcases modern Angular development practices including standalone components, lazy loading, and reactive programming.
+A modern, responsive blog platform built with Angular 20, featuring a clean design and rich text editing capabilities. This project showcases modern Angular development practices including standalone components, control flow syntax, lazy loading, and reactive programming.
 
 <img width="1487" height="873" alt="image" src="https://github.com/user-attachments/assets/500fbb96-ac30-49cd-930f-cc7dea62ec3d" />
 <img width="1167" height="783" alt="image" src="https://github.com/user-attachments/assets/b653af4a-f19f-48d5-a177-8f48800ecb54" />
 
 ## 🚀 Features
 
-- **Modern Angular 17**: Built with the latest Angular features including standalone components
-- **Rich Text Editor**: Integrated Quill.js editor for creating and editing blog posts
+- **Modern Angular 20**: Built with the latest Angular features including standalone components and control flow syntax
+- **Rich Text Editor**: Integrated Quill 2.0 editor for creating and editing blog posts
 - **Responsive Design**: Mobile-first approach with beautiful UI/UX
 - **Blog Management**: Create, view, and manage blog posts with comments
 - **Search & Filter**: Real-time search functionality for blog posts
@@ -18,10 +18,10 @@ A modern, responsive blog platform built with Angular 17, featuring a clean desi
 
 ## 🛠️ Technologies Used
 
-- **Angular 17** - Modern web framework with standalone components
-- **TypeScript** - Type-safe development
+- **Angular 20.2.3** - Modern web framework with standalone components and control flow
+- **TypeScript 5.9** - Type-safe development
 - **SCSS** - Advanced CSS with variables and mixins
-- **Quill.js** - Rich text editor via ngx-quill
+- **Quill.js 2.0.3** - Rich text editor via ngx-quill 28.0.1
 - **RxJS** - Reactive programming with Observables
 - **Angular Router** - Client-side routing with lazy loading
 - **Angular Animations** - Smooth UI transitions
