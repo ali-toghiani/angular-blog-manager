@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import {Paths} from "./enums/paths";
-import {BlogsListComponent} from "./components/blogs/blogs-list/blogs-list.component";
 
 export const routes: Routes = [
   {

@@ -11,7 +11,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideRouter(routes),
     importProvidersFrom(QuillModule.forRoot()),
-    importProvidersFrom(),
     provideAnimations(),
     importProvidersFrom(BrowserAnimationsModule),
   ]
