@@ -2,6 +2,9 @@
 
 A modern, responsive blog platform built with Angular 17, featuring a clean design and rich text editing capabilities. This project showcases modern Angular development practices including standalone components, lazy loading, and reactive programming.
 
+<img width="1487" height="873" alt="image" src="https://github.com/user-attachments/assets/500fbb96-ac30-49cd-930f-cc7dea62ec3d" />
+<img width="1167" height="783" alt="image" src="https://github.com/user-attachments/assets/b653af4a-f19f-48d5-a177-8f48800ecb54" />
+
 ## 🚀 Features
 
 - **Modern Angular 17**: Built with the latest Angular features including standalone components
